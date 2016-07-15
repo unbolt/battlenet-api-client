@@ -253,7 +253,9 @@ class Warcraft extends AbstractBattleNet
       ['fields' => $fields]
     );
 
-    $data['thumbnail'] = 'http://render-api-'. $this->_serverLocation .'.worldofwarcraft.com/static-render/' . $this->_serverLocation . '/' . $data['thumbnail'];
+    if(isset($data['thumbnail'])) {
+      $data['thumbnail'] = 'http://render-api-'. $this->_serverLocation .'.worldofwarcraft.com/static-render/' . $this->_serverLocation . '/' . $data['thumbnail'];
+    }
     $data['characterClass'] = $data['class'];
     unset($data['class']);
 
